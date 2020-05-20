@@ -3,7 +3,7 @@ const fs = require('fs');
 
 const PLANET_API_URL = 'https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI';
 const PLANET_COLUMNS = 'pl_name,pl_orbper,pl_orbsmax,pl_orbeccen,pl_bmasse,pl_rade,pl_dens';
-const STAR_COLUMNS = 'pl_hostname,st_dist,st_teff,st_mass,st_rad,st_dens,st_lum';
+const STAR_COLUMNS = 'pl_hostname,st_dist,st_teff,st_mass,st_rad,st_dens,st_lum,st_glon,st_glat';
 const SYSTEM_COLUMNS = 'pl_pnum';
 const columns = `${PLANET_COLUMNS},${STAR_COLUMNS},${SYSTEM_COLUMNS}`
 const format = 'json';
@@ -47,6 +47,8 @@ axios(PLANET_API_REQUEST_OBJECT).then((response) => {
         starInfo : {
           density: planetData.st_dens,
           distance: planetData.st_dist,
+          galaticLatitude: planetData.st_glat,
+          galaticLongitude: planetData.st_glon,
           luminosity: planetData.st_lum,
           name: planetData.pl_hostname,
           mass: planetData.st_mass,
