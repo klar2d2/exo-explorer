@@ -12,7 +12,7 @@ function App() {
   const [range, setRange] = useState([[0,360],[0,180]])
   useEffect(() =>{
     const [[xRangeMin, xRangeMax], [yRangeMin, yRangeMax]] = range;
-        axios.get(`http://localhost:3001/stars/${visibleMagnitude}/${xRangeMin},${xRangeMax}/${yRangeMin},${yRangeMax}`)
+        axios.get(`https://exo-explorer-server.herokuapp.com/stars/${visibleMagnitude}/${xRangeMin},${xRangeMax}/${yRangeMin},${yRangeMax}`)
     .then((response) => {
       setStars(response.data.stars)
     })
