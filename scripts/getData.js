@@ -47,8 +47,8 @@ axios(PLANET_API_REQUEST_OBJECT).then((response) => {
         starInfo : {
           density: planetData.st_dens,
           distance: planetData.st_dist,
-          galaticLatitude: planetData.st_glat,
-          galaticLongitude: planetData.st_glon,
+          galacticLatitude: planetData.st_glat,
+          galacticLongitude: planetData.st_glon,
           luminosity: planetData.st_lum,
           name: planetData.pl_hostname,
           mass: planetData.st_mass,
