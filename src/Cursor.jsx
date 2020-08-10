@@ -65,6 +65,7 @@ const Cursor = (props) => {
     })
 
     return(
+      <div>
         <canvas
           id='cursor'
           className='canvas'
@@ -72,6 +73,9 @@ const Cursor = (props) => {
           onClick={handleClick}
           onDoubleClick={handleDoubleClick}
         />
+      <button className="zoomOutButton" onClick={handleDoubleClick}/>
+      </div>
+
     )
 };
 

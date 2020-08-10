@@ -1,3 +1,17 @@
 /* .canvas {
   cursor: none;
 } */
+.zoomOutButton {
+  position:absolute;
+  z-index: 1;
+  margin: 5px;
+
+}
+.loading {
+  position: absolute;
+  z-index: -1;
+}
+
+.App {
+  z-index: 0;
+}

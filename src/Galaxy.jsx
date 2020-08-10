@@ -77,7 +77,7 @@ const pickColor = (temperature) => {
 }
 
 const Galaxy = (props) => {
-  const {scale, stars, range, visibleMagnitude} = props;
+  const {scale, stars, range, visibleMagnitude, doneCanvas} = props;
   const [[xMin,xMax],[yMin,yMax]] = range;
   const yRange = yMax - yMin;
   const xRange = xMax - xMin;
@@ -100,6 +100,7 @@ const Galaxy = (props) => {
       drawStar(ctx, x, y, .5*((visibleMagnitude+scale)-magnitude), .5, color)
     })
   },[stars])
+
   return (
       <canvas id='galaxy' className='canvas'/>
   );
