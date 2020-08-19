@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 import Galaxy from '../Subcomponents/Galaxy'
 import Cursor from '../Subcomponents/Cursor'
+import Loading from '../Subcomponents/Loading'
 
 function Map () {
   const [stars, setStars] = useState([]);
@@ -47,23 +48,30 @@ function Map () {
 
     }
   }
-  return (
-    <div>
-      <Galaxy
-        canvasHeight={canvasHeight}
-        canvasWidth={canvasWidth}
-        visibleMagnitude={visibleMagnitude}
-        scale={scale}
-        stars={stars}
-        range={range}
-        doneCanvas={doneCanvas}
-      />
-      <Cursor
-        zoomIn={zoomIn}
-        zoomOut={zoomOut}
-      />
-    </div>
-  )
+  if (doneCanvas) {
+    return (
+      <div>
+        <Galaxy
+          canvasHeight={canvasHeight}
+          canvasWidth={canvasWidth}
+          visibleMagnitude={visibleMagnitude}
+          scale={scale}
+          stars={stars}
+          range={range}
+          doneCanvas={doneCanvas}
+        />
+        <Cursor
+          zoomIn={zoomIn}
+          zoomOut={zoomOut}
+        />
+      </div>
+    )
+  }
+  else {
+    return (
+      <Loading />
+    )
+  }
 }
 
 export default Map;
